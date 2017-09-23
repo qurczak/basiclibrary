@@ -18,7 +18,20 @@ return [
             'basePath' => __DIR__ . '/../web/assets',
         ],
         'urlManager' => [
+            'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
             'showScriptName' => true,
+            'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['user', 'library', 'book']
+                ],
+                '/' => 'site/index',
+                '<action:\w+>' => 'site/<action>',
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            ],
         ],
         'user' => [
             'identityClass' => 'app\models\User',
@@ -32,7 +45,18 @@ return [
                 'domain' => 'localhost',
             ],
             */
-        ],        
+        ],
+//        'response' => [
+//            'formatters' => [
+//                \yii\web\Response::FORMAT_JSON => [
+//                    'class' => 'yii\web\JsonResponseFormatter',
+//                    'prettyPrint' => YII_DEBUG, // use "pretty" output in debug mode
+//                    'encodeOptions' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
+//                    // ...
+//                ],
+//            ],
+//        ],
     ],
+
     'params' => $params,
 ];
