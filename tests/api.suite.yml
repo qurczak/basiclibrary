@@ -7,3 +7,7 @@ modules:
             url: http://localhost:8000/
             depends: PhpBrowser
             part: Json
+        - Db:
+           populate: true # run populator before all tests
+           cleanup: true # run populator before each test
+           populator: 'mysql -u $user -p$password -h $host $dbname < $dump'

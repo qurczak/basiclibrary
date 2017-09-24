@@ -45,10 +45,8 @@ $config = [
         'db' => $db,
         'urlManager' => [
             'enablePrettyUrl' => true,
-//            'enablePrettyUrl' => false,
             'enableStrictParsing' => true,
-//            'showScriptName' => false,
-            'showScriptName' => true,
+            'showScriptName' => false,
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',

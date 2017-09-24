@@ -8,11 +8,6 @@
 #basic/web/index.php
 class_name: FunctionalTester
 modules:
-    enabled:
-      - Filesystem
-      - Yii2
-#      - Db:
-#         dump: 'tests/_data/dump.sql'
-#         populate: true # run populator before all tests
-#         cleanup: true # run populator before each test
-#         populator: 'mysql -u $user -p$password -h $host $dbname < $dump'
+  enabled:
+    - Filesystem
+    - Yii2

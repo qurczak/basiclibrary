@@ -4,6 +4,7 @@ namespace tests\models;
 
 use app\models\Book;
 use app\models\Library;
+use DateTime;
 use PHPUnit\Framework\TestResult;
 
 include_once("helpers.php");
@@ -56,7 +57,8 @@ class LibraryTest extends \Codeception\Test\Unit
         createLibrary($this->libraryName);
 
         $library = Library::findOne(["name" => $this->libraryName]);
-        expect($library->date)->greaterOrEquals($currDate);
+        $date_from_db = new DateTime($library->date);
+        expect($date_from_db)->greaterOrEquals($currDate);
     }
 
     /**
